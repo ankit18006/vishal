@@ -4,8 +4,15 @@ import wikipedia
 import pyttsx3
 import threading
 
+import toml
+
+# Load configuration
+config = toml.load("config.toml")
+api_key = config["api"]["wolframalpha_key"]
+
 # Initialize WolframAlpha client
-client = wolframalpha.Client("L3JQQ4-JG7VYWW368")
+client = wolframalpha.Client(api_key)
+
 
 # Initialize text-to-speech engine
 engine = pyttsx3.init()
